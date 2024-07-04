@@ -16,12 +16,6 @@ export const LeaguesRepository = {
                 return await this.save(leagues);
             },
 
-            // async findLeaguesByCountry(
-            //     country: string,
-            // ): Promise<LeagueEntity[]> {
-            //     return await this.find({ where: { country } });
-            // },
-
             async findLeaguesByCountry(
                 countryName: string,
             ): Promise<LeagueEntity[]> {
