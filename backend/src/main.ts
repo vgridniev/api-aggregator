@@ -9,7 +9,12 @@ async function bootstrap() {
     const port = configService.get<number>('POSTGRES_PORT') || 4000; // Default to 4000 if PORT is not set
 
     const logger = new Logger('Bootstrap');
-    logger.log(`Connecting to database at ${configService.get<string>('DATABASE_URL')}`);
+    logger.log(
+        `Connecting to database at ${configService.get<number>('POSTGRES_PORT')}`,
+    );
+    logger.log(
+        `Connecting to database at ${configService.get<string>('POSTGRES_URL')}`,
+    );
     logger.log(`Starting server on port ${port}`);
 
     await app.listen(port);

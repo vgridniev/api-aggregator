@@ -16,5 +16,16 @@
       "src": "/(.*)",
       "dest": "/dist/main.js"
     }
-  ]
+  ],
+  "env": {
+    "PORT": "4000",
+    "POSTGRES_URL": "postgres://default:41aXTnRMzIfy@ep-solitary-bar-a49r1534.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require",
+    "POSTGRES_USER": "default",
+    "POSTGRES_PASSWORD": "41aXTnRMzIfy",
+    "POSTGRES_DB": "verceldb",
+    "POSTGRES_HOST": "ep-solitary-bar-a49r1534.us-east-1.aws.neon.tech",
+    "POSTGRES_PORT": "5432",
+    "RAPIDAPI_KEY": "9194328c60msh0b3b9302fe138e6p1db559jsn6dcbff84220e",
+    "RAPIDAPI_HOST": "api-football-v1.p.rapidapi.com"
+  }
 }
