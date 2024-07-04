@@ -31,15 +31,23 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install dependencies
+      - name: Install backend dependencies
         run: npm install
         working-directory: backend
 
-      - name: Build the project
+      - name: Build backend project
         run: npm run build
         working-directory: backend
 
-  deploy:
+      - name: Install frontend dependencies
+        run: npm install
+        working-directory: frontend
+
+      - name: Build frontend project
+        run: npm run build
+        working-directory: frontend
+
+  deploy-backend:
     runs-on: ubuntu-latest
     needs: build
 
@@ -47,9 +55,43 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Deploy to Vercel
-        run: npx vercel --prod --token ${{ secrets.VERCEL_TOKEN }}
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+
+      - name: Deploy backend to Vercel
+        run: npx vercel --prod --token ${{ secrets.VERCEL_TOKEN }} --cwd backend
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-          
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_BACKEND_PROJECT_ID }}
+          DATABASE_TYPE: ${{ secrets.DATABASE_TYPE }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DATABASE_PORT: ${{ secrets.DATABASE_PORT }}
+          POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+          POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
+          PORT: 4000
+          RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
+          RAPIDAPI_HOST: ${{ secrets.RAPIDAPI_HOST }}
+          POSTGRES_VERSION: 16
+
+
+  deploy-frontend:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+
+      - name: Deploy frontend to Vercel
+        run: npx vercel --prod --token ${{ secrets.VERCEL_TOKEN }} --cwd frontend
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_FRONTEND_PROJECT_ID }}
