@@ -16,13 +16,16 @@ import { LeagueEntity } from './entities/league.entity';
             imports: [ConfigModule],
             inject: [ConfigService],
             useFactory: (configService: ConfigService) => {
-                console.log(
-                    'DATABASE_URL:',
-                    configService.get<string>('DATABASE_URL'),
-                );
                 return {
-                    type: configService.get<string>('DATABASE_TYPE') as any,
-                    url: configService.get<string>('DATABASE_URL'),
+                    type: 'postgres',
+                    host: configService.get<string>('POSTGRES_HOST'),
+                    port: parseInt(
+                        configService.get<string>('POSTGRES_PORT'),
+                        10,
+                    ),
+                    username: configService.get<string>('POSTGRES_USER'),
+                    password: configService.get<string>('POSTGRES_PASSWORD'),
+                    database: configService.get<string>('POSTGRES_DB'),
                     entities: [CountryEntity, LeagueEntity],
                     synchronize: true,
                 };
