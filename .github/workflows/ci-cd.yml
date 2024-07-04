@@ -62,17 +62,35 @@ jobs:
         with:
           node-version: 18
 
+      - name: Install backend dependencies
+        run: npm install
+        working-directory: backend
+
+      - name: Build backend project
+        run: npm run build
+        working-directory: backend
+        
+      - name: Log environment variables
+        run: |
+          echo "POSTGRES_URL: ${{ secrets.POSTGRES_URL }}"
+          echo "POSTGRES_USER: ${{ secrets.POSTGRES_USER }}"
+          echo "POSTGRES_PASSWORD: [MASKED]"
+          echo "POSTGRES_DB: ${{ secrets.POSTGRES_DB }}"
+          echo "POSTGRES_HOST: ${{ secrets.POSTGRES_HOST }}"
+          echo "POSTGRES_PORT: ${{ secrets.POSTGRES_PORT }}"
+        shell: bash
+
       - name: Deploy backend to Vercel
         run: npx vercel --prod --token ${{ secrets.VERCEL_TOKEN }} --cwd backend
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_BACKEND_PROJECT_ID }}
-          DATABASE_TYPE: ${{ secrets.DATABASE_TYPE }}
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          DATABASE_PORT: ${{ secrets.DATABASE_PORT }}
+          POSTGRES_URL: ${{ secrets.POSTGRES_URL }}
           POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
           POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
           POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
+          POSTGRES_HOST: ${{ secrets.POSTGRES_HOST }}
+          POSTGRES_PORT: ${{ secrets.POSTGRES_PORT }}
           PORT: 4000
           RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
           RAPIDAPI_HOST: ${{ secrets.RAPIDAPI_HOST }}
