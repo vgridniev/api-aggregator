@@ -69,16 +69,6 @@ jobs:
       - name: Build backend project
         run: npm run build
         working-directory: backend
-        
-      - name: Log environment variables
-        run: |
-          echo "POSTGRES_URL: ${{ secrets.POSTGRES_URL }}"
-          echo "POSTGRES_USER: ${{ secrets.POSTGRES_USER }}"
-          echo "POSTGRES_PASSWORD: [MASKED]"
-          echo "POSTGRES_DB: ${{ secrets.POSTGRES_DB }}"
-          echo "POSTGRES_HOST: ${{ secrets.POSTGRES_HOST }}"
-          echo "POSTGRES_PORT: ${{ secrets.POSTGRES_PORT }}"
-        shell: bash
 
       - name: Deploy backend to Vercel
         run: npx vercel --prod --token ${{ secrets.VERCEL_TOKEN }} --cwd backend
