@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+
+console.log('NEXT_PUBLIC_API_URL in nextConfig:', process.env.NEXT_PUBLIC_API_URL);
 const nextConfig = {
 	images: {
 		remotePatterns: [
