@@ -1,11 +1,11 @@
 import dynamic from 'next/dynamic';
 
 const LeaguesPageClient = dynamic(() => import('./LeaguesPageClient'), {
-  ssr: false,
+    ssr: false,
 });
 
 const LeaguesPage = () => {
-  return <LeaguesPageClient />;
+    return <LeaguesPageClient />;
 };
 
 export default LeaguesPage;

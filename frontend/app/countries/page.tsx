@@ -1,11 +1,11 @@
 import dynamic from 'next/dynamic';
 
 const CountriesPageClient = dynamic(() => import('./CountriesPageClient'), {
-  ssr: false,
+    ssr: false,
 });
 
 const CountriesPage = async () => {
-  return <CountriesPageClient />;
+    return <CountriesPageClient />;
 };
 
 export default CountriesPage;

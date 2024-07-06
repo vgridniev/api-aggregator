@@ -15,7 +15,7 @@ export function Search({ value: initialValue, basePath, placeholder }: SearchPro
 
 	useEffect(() => {
 		const params = new URLSearchParams(window.location.search);
-		console.log("🚀 ~ Search ~ value:", value)
+
 		if (value === undefined) {
 			return;
 		} else if (value) {
@@ -42,7 +42,7 @@ export function Search({ value: initialValue, basePath, placeholder }: SearchPro
 			className="w-full bg-white shadow-none appearance-none pl-8"
 			placeholder={placeholder}
       	/>
-      {isPending && <Spinner />}
+      	{isPending && <Spinner />}
     </div>
   );
 }
