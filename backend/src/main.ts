@@ -6,6 +6,13 @@ import { Logger } from '@nestjs/common';
 async function bootstrap() {
     const app = await NestFactory.create(AppModule);
     const configService = app.get(ConfigService);
+
+    // Enable CORS
+    app.enableCors({
+        origin: 'http://localhost:3000', // Allow requests from this origin
+        methods: 'GET,HEAD', // Allow only GET requests
+        credentials: true,
+    });
     const port = configService.get<number>('POSTGRES_PORT') || 4000; // Default to 4000 if PORT is not set
 
     const logger = new Logger('Bootstrap');

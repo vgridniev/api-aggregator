@@ -1,4 +1,6 @@
 
+
+```
 ```
 api-aggregator
 ├─ LICENSE
@@ -6,13 +8,10 @@ api-aggregator
 ├─ README.pdf
 ├─ backend
 │  ├─ .DS_Store
-│  ├─ .env
 │  ├─ .env.local
+│  ├─ .env.prod
 │  ├─ .eslintrc.js
 │  ├─ .prettierrc
-│  ├─ .vercel
-│  │  ├─ README.txt
-│  │  └─ project.json
 │  ├─ README.md
 │  ├─ dist
 │  │  ├─ app.module.d.ts
@@ -111,139 +110,125 @@ api-aggregator
 │  ├─ test
 │  │  └─ jest-e2e.json
 │  ├─ tsconfig.build.json
-│  ├─ tsconfig.json
-│  └─ vercel.json
+│  └─ tsconfig.json
 └─ frontend
    ├─ .DS_Store
    ├─ .env.local
    ├─ .next
    │  ├─ app-build-manifest.json
+   │  ├─ app-path-routes-manifest.json
    │  ├─ build-manifest.json
-   │  ├─ chunks
-   │  │  ├─ [output]__next_transform_ad1f0f.js
-   │  │  ├─ [output]__next_transform_ad1f0f.js.map
-   │  │  ├─ [output]__next_transform_cc8fc1.js
-   │  │  ├─ [turbopack-node]__a86098._.js
-   │  │  ├─ [turbopack-node]__a86098._.js.map
-   │  │  ├─ _0b8f1c._.js
-   │  │  ├─ _0b8f1c._.js.map
-   │  │  ├─ postcss_config_js_transform_ts_b0fe12._.js
-   │  │  ├─ postcss_config_js_transform_ts_b0fe12._.js.map
-   │  │  └─ postcss_config_js_transform_ts_c36dd5._.js
-   │  ├─ fallback-build-manifest.json
+   │  ├─ cache
+   │  │  ├─ .tsbuildinfo
+   │  │  ├─ swc
+   │  │  │  └─ plugins
+   │  │  │     └─ v7_macos_x86_64_0.106.15
+   │  │  └─ webpack
+   │  │     ├─ client-production
+   │  │     │  ├─ 0.pack
+   │  │     │  ├─ 1.pack
+   │  │     │  ├─ 2.pack
+   │  │     │  ├─ index.pack
+   │  │     │  └─ index.pack.old
+   │  │     ├─ edge-server-production
+   │  │     │  ├─ 0.pack
+   │  │     │  └─ index.pack
+   │  │     └─ server-production
+   │  │        ├─ 0.pack
+   │  │        ├─ 1.pack
+   │  │        ├─ 2.pack
+   │  │        ├─ 3.pack
+   │  │        ├─ 4.pack
+   │  │        ├─ 5.pack
+   │  │        ├─ 6.pack
+   │  │        ├─ index.pack
+   │  │        └─ index.pack.old
    │  ├─ package.json
+   │  ├─ prerender-manifest.js
    │  ├─ react-loadable-manifest.json
+   │  ├─ routes-manifest.json
    │  ├─ server
    │  │  ├─ app
-   │  │  │  ├─ _not-found
-   │  │  │  │  ├─ page
-   │  │  │  │  │  ├─ app-build-manifest.json
-   │  │  │  │  │  ├─ app-paths-manifest.json
-   │  │  │  │  │  ├─ build-manifest.json
-   │  │  │  │  │  ├─ next-font-manifest.json
-   │  │  │  │  │  ├─ react-loadable-manifest.json
-   │  │  │  │  │  └─ server-reference-manifest.json
-   │  │  │  │  ├─ page.js
-   │  │  │  │  ├─ page.js.map
-   │  │  │  │  └─ page_client-reference-manifest.js
-   │  │  │  ├─ favicon.ico
-   │  │  │  │  ├─ route
-   │  │  │  │  │  ├─ app-paths-manifest.json
-   │  │  │  │  │  ├─ next-font-manifest.json
-   │  │  │  │  │  └─ react-loadable-manifest.json
-   │  │  │  │  ├─ route.js
-   │  │  │  │  └─ route.js.map
-   │  │  │  ├─ page
-   │  │  │  │  ├─ app-build-manifest.json
-   │  │  │  │  ├─ app-paths-manifest.json
-   │  │  │  │  ├─ build-manifest.json
-   │  │  │  │  ├─ next-font-manifest.json
-   │  │  │  │  ├─ react-loadable-manifest.json
-   │  │  │  │  └─ server-reference-manifest.json
-   │  │  │  ├─ page.js
-   │  │  │  ├─ page.js.map
-   │  │  │  └─ page_client-reference-manifest.js
+   │  │  │  └─ favicon.ico
+   │  │  │     ├─ route.js
+   │  │  │     └─ route.js.nft.json
    │  │  ├─ app-paths-manifest.json
    │  │  ├─ chunks
-   │  │  │  ├─ [turbopack]_runtime.js
-   │  │  │  ├─ [turbopack]_runtime.js.map
-   │  │  │  ├─ app_favicon--route-entry_6db5e1.js
-   │  │  │  ├─ app_favicon--route-entry_6db5e1.js.map
-   │  │  │  └─ ssr
-   │  │  │     ├─ [turbopack]_dev_client_3aeb22._.js
-   │  │  │     ├─ [turbopack]_dev_client_3aeb22._.js.map
-   │  │  │     ├─ [turbopack]_dev_client_hmr-client_ts_530459._.js
-   │  │  │     ├─ [turbopack]_dev_client_hmr-client_ts_530459._.js.map
-   │  │  │     ├─ [turbopack]_dev_client_hmr-client_ts_b3b884._.js
-   │  │  │     ├─ [turbopack]_dev_client_hmr-client_ts_b3b884._.js.map
-   │  │  │     ├─ [turbopack]_dev_client_hmr-client_ts_dcc50c._.js
-   │  │  │     ├─ [turbopack]_dev_client_hmr-client_ts_dcc50c._.js.map
-   │  │  │     ├─ [turbopack]_dev_client_hmr-client_ts_f8cb52._.js
-   │  │  │     ├─ [turbopack]_dev_client_hmr-client_ts_f8cb52._.js.map
-   │  │  │     ├─ [turbopack]_runtime.js
-   │  │  │     ├─ [turbopack]_runtime.js.map
-   │  │  │     ├─ _5da79c._.js
-   │  │  │     ├─ _5da79c._.js.map
-   │  │  │     ├─ _8686aa._.js
-   │  │  │     ├─ _8686aa._.js.map
-   │  │  │     ├─ _c6167c._.js
-   │  │  │     ├─ _c6167c._.js.map
-   │  │  │     ├─ _f00d73._.js
-   │  │  │     ├─ _f00d73._.js.map
-   │  │  │     ├─ _f70e0b._.js
-   │  │  │     ├─ _f70e0b._.js.map
-   │  │  │     ├─ _fdd766._.js
-   │  │  │     ├─ _fdd766._.js.map
-   │  │  │     ├─ app_error_tsx_ebc8e5._.js
-   │  │  │     ├─ app_error_tsx_ebc8e5._.js.map
-   │  │  │     ├─ app_fdc36c._.js
-   │  │  │     ├─ app_fdc36c._.js.map
-   │  │  │     ├─ app_layout_tsx_acda70._.js
-   │  │  │     └─ app_layout_tsx_acda70._.js.map
+   │  │  │  ├─ 13.js
+   │  │  │  ├─ 437.js
+   │  │  │  ├─ 682.js
+   │  │  │  ├─ 717.js
+   │  │  │  └─ font-manifest.json
    │  │  ├─ font-manifest.json
+   │  │  ├─ functions-config-manifest.json
    │  │  ├─ interception-route-rewrite-manifest.js
    │  │  ├─ middleware-build-manifest.js
    │  │  ├─ middleware-manifest.json
    │  │  ├─ middleware-react-loadable-manifest.js
    │  │  ├─ next-font-manifest.js
    │  │  ├─ next-font-manifest.json
+   │  │  ├─ pages
+   │  │  │  ├─ _app.js
+   │  │  │  ├─ _app.js.nft.json
+   │  │  │  ├─ _document.js
+   │  │  │  ├─ _document.js.nft.json
+   │  │  │  ├─ _error.js
+   │  │  │  ├─ _error.js.nft.json
+   │  │  │  ├─ api
+   │  │  │  │  ├─ countries.js
+   │  │  │  │  └─ countries.js.nft.json
+   │  │  │  ├─ countries.js
+   │  │  │  ├─ countries.js.nft.json
+   │  │  │  ├─ error.js
+   │  │  │  ├─ error.js.nft.json
+   │  │  │  ├─ index.js
+   │  │  │  ├─ index.js.nft.json
+   │  │  │  ├─ infinite-scroll.js
+   │  │  │  ├─ infinite-scroll.js.nft.json
+   │  │  │  ├─ interfaces
+   │  │  │  │  ├─ country.js
+   │  │  │  │  └─ country.js.nft.json
+   │  │  │  ├─ nav-item.js
+   │  │  │  ├─ nav-item.js.nft.json
+   │  │  │  ├─ page.js
+   │  │  │  ├─ page.js.nft.json
+   │  │  │  ├─ search.js
+   │  │  │  └─ search.js.nft.json
    │  │  ├─ pages-manifest.json
    │  │  ├─ server-reference-manifest.js
-   │  │  └─ server-reference-manifest.json
+   │  │  ├─ server-reference-manifest.json
+   │  │  ├─ webpack-api-runtime.js
+   │  │  └─ webpack-runtime.js
    │  ├─ static
+   │  │  ├─ 69YXjy6nGqWdd4jzu-Azl
+   │  │  │  ├─ _buildManifest.js
+   │  │  │  └─ _ssgManifest.js
    │  │  ├─ chunks
-   │  │  │  ├─ [turbopack]_dev_client_dcbd7d._.js
-   │  │  │  ├─ [turbopack]_dev_client_dcbd7d._.js.map
-   │  │  │  ├─ [turbopack]_dev_client_hmr-client_ts_23f2be._.js
-   │  │  │  ├─ [turbopack]_dev_client_hmr-client_ts_23f2be._.js.map
-   │  │  │  ├─ [turbopack]_dev_client_hmr-client_ts_ddc16d._.js
-   │  │  │  ├─ _090fab._.js
-   │  │  │  ├─ _090fab._.js.map
-   │  │  │  ├─ _373c09._.js
-   │  │  │  ├─ _373c09._.js.map
-   │  │  │  ├─ app_a8f705._.js
-   │  │  │  ├─ app_a8f705._.js.map
-   │  │  │  ├─ app_error_tsx_6c72c3._.js
-   │  │  │  ├─ app_error_tsx_6c72c3._.js.map
-   │  │  │  ├─ app_error_tsx_cec54a._.js
-   │  │  │  ├─ app_error_tsx_e5220d._.js
-   │  │  │  ├─ app_globals_73c377.css
-   │  │  │  ├─ app_globals_73c377.css.map
-   │  │  │  ├─ app_globals_b52d8e.css
-   │  │  │  ├─ app_globals_b52d8e.css.map
-   │  │  │  ├─ app_layout_tsx_4f923f._.js
-   │  │  │  ├─ app_layout_tsx_83fc40._.js
-   │  │  │  ├─ app_layout_tsx_83fc40._.js.map
-   │  │  │  ├─ app_layout_tsx_87135b._.js
-   │  │  │  ├─ app_layout_tsx_e2db25._.js
-   │  │  │  ├─ app_layout_tsx_f13d71._.js
-   │  │  │  ├─ app_page_tsx_360c65._.js
-   │  │  │  └─ app_page_tsx_ad1490._.js
-   │  │  └─ development
-   │  │     ├─ _buildManifest.js
-   │  │     └─ _ssgManifest.js
+   │  │  │  ├─ 19-a306b231822f8ae1.js
+   │  │  │  ├─ 388-e5305b12954e7014.js
+   │  │  │  ├─ fd9d1056-2821b0f0cabcd8bd.js
+   │  │  │  ├─ framework-1ef4933fc9f10a4c.js
+   │  │  │  ├─ main-1780185dceae811b.js
+   │  │  │  ├─ main-app-82146dce940a1a74.js
+   │  │  │  ├─ pages
+   │  │  │  │  ├─ _app-e0c25201a961154b.js
+   │  │  │  │  ├─ _error-1be831200e60c5c0.js
+   │  │  │  │  ├─ countries-956295ee0275ec76.js
+   │  │  │  │  ├─ error-6537db59898aa3b7.js
+   │  │  │  │  ├─ index-c62ab539104c6935.js
+   │  │  │  │  ├─ infinite-scroll-eea9b3a734d91685.js
+   │  │  │  │  ├─ interfaces
+   │  │  │  │  │  └─ country-e32dfeff8801fe8e.js
+   │  │  │  │  ├─ nav-item-b3eaafe5e5de0078.js
+   │  │  │  │  ├─ page-9ba7b781b64407fd.js
+   │  │  │  │  └─ search-021a687cc8857c27.js
+   │  │  │  ├─ polyfills-78c92fac7aa8fdd8.js
+   │  │  │  └─ webpack-35b92941fc8726f9.js
+   │  │  └─ css
+   │  │     └─ cff98d7d2c614a7a.css
    │  ├─ trace
-   │  └─ transform.js
+   │  └─ types
+   │     └─ package.json
    ├─ .vercel
    │  ├─ README.txt
    │  └─ project.json
@@ -253,26 +238,10 @@ api-aggregator
    ├─ README.md
    ├─ README.pdf
    ├─ app
-   │  ├─ api
-   │  │  ├─ countries
-   │  │  │  └─ route.ts
-   │  │  └─ leagues
-   │  │     └─ [country]
-   │  │        └─ route.ts
-   │  ├─ country
-   │  │  ├─ [country]
-   │  │  │  └─ page.tsx
-   │  │  └─ [country].tsx
-   │  ├─ error.tsx
    │  ├─ favicon.ico
    │  ├─ globals.css
-   │  ├─ infinite-scroll.ts
-   │  ├─ layout.tsx
-   │  ├─ nav-item.tsx
-   │  ├─ page.tsx
-   │  └─ search.tsx
+   │  └─ layout.tsx
    ├─ components
-   │  ├─ Countries.tsx
    │  ├─ CountryLeagues.tsx
    │  ├─ icons.tsx
    │  └─ ui
@@ -283,6 +252,21 @@ api-aggregator
    │  └─ utils.ts
    ├─ next-env.d.ts
    ├─ next.config.js
+   ├─ package-lock.json
+   ├─ package.json
+   ├─ pages
+   │  ├─ _app.tsx
+   │  ├─ api
+   │  │  └─ countries.ts
+   │  ├─ countries.tsx
+   │  ├─ error.tsx
+   │  ├─ index.tsx
+   │  ├─ infinite-scroll.ts
+   │  ├─ interfaces
+   │  │  └─ country.ts
+   │  ├─ nav-item.tsx
+   │  ├─ page.tsx
+   │  └─ search.tsx
    ├─ postcss.config.js
    ├─ tailwind.config.ts
    ├─ tsconfig.json

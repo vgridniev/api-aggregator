@@ -24,6 +24,8 @@ export class ApiFootballService {
     }
 
     private getHeaders() {
+        console.log('API KEY', this.apiKey);
+        console.log('API HOST', this.apiHost);
         return {
             'x-rapidapi-key': this.apiKey,
             'x-rapidapi-host': this.apiHost,

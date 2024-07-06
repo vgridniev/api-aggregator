@@ -27,19 +27,3 @@ export function NavItem({
     </Link>
   );
 }
-
-// import Link from 'next/link';
-// import { ReactNode } from 'react';
-
-// interface NavItemProps {
-//   href: string;
-//   children: ReactNode;
-// }
-
-// const NavItem: React.FC<NavItemProps> = ({ href, children }) => (
-//   <Link href={href}>
-//     <a>{children}</a>
-//   </Link>
-// );
-
-// export default NavItem;

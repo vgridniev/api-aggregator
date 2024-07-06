@@ -1,22 +1,18 @@
-import { Search } from './search';
+'use client';
 
-export default async function IndexPage({
-  searchParams
-}: {
-  searchParams: { q: string; offset: string };
-}) {
-  const search = searchParams.q ?? '';
-  const offset = searchParams.offset ?? 0;
-  // const { users, newOffset } = await getUsers(search, Number(offset));
+import { NavItem } from './nav-item';
+import { Button } from '@/components/ui/button';
 
+export default async function IndexPage() {
   return (
-    <main className="flex flex-1 flex-col p-4 md:p-6">
-      <div className="flex items-center mb-8">
-        <h1 className="font-semibold text-lg md:text-2xl">Countries</h1>
+    <div className="flex flex-col items-center min-h-screen py-8">
+      <h1 className="text-4xl font-bold mb-6">Welcome to the Home Page</h1>
+      <p className="text-2xl mb-6 mt-6">You can navigate to the</p>
+      <div className="mt-4">
+        <NavItem href="/countries">
+          <Button variant="default" size="default">Countries Page</Button>
+        </NavItem>
       </div>
-      <div className="w-full mb-4">
-        <Search value={searchParams.q} />
-      </div>
-    </main>
+    </div>
   );
 }

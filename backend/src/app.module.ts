@@ -10,7 +10,7 @@ import { LeagueEntity } from './entities/league.entity';
     imports: [
         ConfigModule.forRoot({
             isGlobal: true,
-            envFilePath: ['.env.local', '.env', '.env.prod'],
+            envFilePath: ['.env.local', '.env.prod'],
         }),
         TypeOrmModule.forRootAsync({
             imports: [ConfigModule],
@@ -18,9 +18,7 @@ import { LeagueEntity } from './entities/league.entity';
             useFactory: (configService: ConfigService) => {
                 return {
                     type: 'postgres',
-                    url:
-                        process.env.DATABASE_URL ||
-                        configService.get<string>('DATABASE_URL'),
+                    url: configService.get<string>('POSTGRES_URL'),
                     entities: [CountryEntity, LeagueEntity],
                     synchronize: true,
                 };

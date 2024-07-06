@@ -28,8 +28,8 @@ export class CountriesService {
     ) {}
 
     async findAllCountries(): Promise<{
-        countries: ICountry[];
         requestDuration: string;
+        countries: ICountry[];
     }> {
         const start = Date.now(); // Start timing the request
 
@@ -51,7 +51,7 @@ export class CountriesService {
             }
 
             const requestDuration = calculateRequestDuration(start);
-            return { countries, requestDuration };
+            return { requestDuration, countries };
         } catch (error) {
             this.logger.error(`Failed to fetch countries: ${error.message}`);
             throw new InternalServerErrorException('Failed to fetch countries');
