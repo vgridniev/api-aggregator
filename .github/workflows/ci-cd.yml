@@ -68,19 +68,25 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install Heroku CLI
-        run: curl https://cli-assets.heroku.com/install.sh | sh
-
-      - name: Authenticate with Heroku
+      - name: Login to Heroku Container Registry
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        run: heroku auth:token
+        run: |
+          echo "$HEROKU_API_KEY" | docker login --username=_ --password-stdin registry.heroku.com
 
-      - name: Add Heroku remote
-        run: git remote add heroku https://git.heroku.com/api-aggregator-backend.git
+      - name: Build Docker image
+        run: |
+          docker build -t registry.heroku.com/api-aggregator-backend/web ./backend
 
-      - name: Push to Heroku
-        run: git push heroku main
+      - name: Push Docker image to Heroku Container Registry
+        run: |
+          docker push registry.heroku.com/api-aggregator-backend/web
+
+      - name: Release Docker image on Heroku
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: |
+          heroku container:release web --app api-aggregator-backend
 
   deploy-frontend:
     runs-on: ubuntu-latest
