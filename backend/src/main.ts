@@ -9,8 +9,12 @@ async function bootstrap() {
 
     // Enable CORS
     app.enableCors({
-        origin:
-            configService.get<string>('CORS_ORIGIN') || 'http://localhost:3000',
+        origin: [
+            'http://localhost:3000',
+            'https://frontend-vgridniev-vgridnievs-projects.vercel.app',
+            'https://api-aggregator-backend-10c40939c945.herokuapp.com',
+            'https://www.postman.com',
+        ],
         methods: 'GET,HEAD',
         credentials: true,
     });
