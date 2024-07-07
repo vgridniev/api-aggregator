@@ -18,7 +18,7 @@ import { LeagueEntity } from './entities/league.entity';
             useFactory: (configService: ConfigService) => {
                 return {
                     type: 'postgres',
-                    url: configService.get<string>('POSTGRES_URL'),
+                    url: configService.get<string>('DATABASE_URL'),
                     entities: [CountryEntity, LeagueEntity],
                     synchronize: true,
                 };

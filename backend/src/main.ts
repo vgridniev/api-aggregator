@@ -9,20 +9,14 @@ async function bootstrap() {
 
     // Enable CORS
     app.enableCors({
-        origin: 'http://localhost:3000', // Allow requests from this origin
-        methods: 'GET,HEAD', // Allow only GET requests
+        origin:
+            configService.get<string>('CORS_ORIGIN') || 'http://localhost:3000',
+        methods: 'GET,HEAD',
         credentials: true,
     });
     const port = configService.get<number>('POSTGRES_PORT') || 4000; // Default to 4000 if PORT is not set
 
     const logger = new Logger('Bootstrap');
-    logger.log(
-        `Connecting to database at ${configService.get<number>('POSTGRES_PORT')}`,
-    );
-    logger.log(
-        `Connecting to database at ${configService.get<string>('POSTGRES_URL')}`,
-    );
-    logger.log(`Starting server on port ${port}`);
 
     await app.listen(port);
     console.log(`Application is running on: ${await app.getUrl()}`);
