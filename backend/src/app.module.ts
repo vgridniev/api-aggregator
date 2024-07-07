@@ -21,6 +21,9 @@ import { LeagueEntity } from './entities/league.entity';
                     url: configService.get<string>('DATABASE_URL'),
                     entities: [CountryEntity, LeagueEntity],
                     synchronize: true,
+                    ssl: {
+                        rejectUnauthorized: false,
+                    },
                 };
             },
         }),
