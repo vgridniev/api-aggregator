@@ -1,11 +1,9 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { ConfigService } from '@nestjs/config';
 import { Logger } from '@nestjs/common';
 
 async function bootstrap() {
     const app = await NestFactory.create(AppModule);
-    const configService = app.get(ConfigService);
 
     // Enable CORS
     app.enableCors({
@@ -18,7 +16,7 @@ async function bootstrap() {
         methods: 'GET,HEAD',
         credentials: true,
     });
-    const port = configService.get<number>('POSTGRES_PORT') || 4000; // Default to 4000 if PORT is not set
+    const port = process.env.PORT || 4000;
 
     const logger = new Logger('Bootstrap');
 
