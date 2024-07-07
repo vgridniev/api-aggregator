@@ -47,7 +47,7 @@ const LeaguesPageClient = () => {
     );
 
     return (
-        <div className="p-4">
+        <div className="p-4 relative">
         {loading ? (
             <Spinner />
         ) : (

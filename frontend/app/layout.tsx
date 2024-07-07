@@ -20,7 +20,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				<div className="flex h-[60px] items-center border-b px-5">
 					<Link className="flex items-center gap-2 font-semibold" href="/">
 						<Logo />
-						<span className="">Webmil Web Production</span>
+						<div className="flex flex-col">
+							<span>Webmil Web Production</span>
+							<span  className="text-xs">Test task</span>
+						</div>
 					</Link>
 				</div>
 				<div className="flex-1 overflow-auto py-2">
@@ -38,6 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				<Link className="flex items-center gap-2 font-semibold lg:hidden" href="/">
 					<Logo />
 					<span className="">Webmil Web Production</span>
+					
 				</Link>
 				</header>
 				{children}
