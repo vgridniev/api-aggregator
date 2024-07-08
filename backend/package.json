@@ -2,9 +2,9 @@
   "name": "backend",
   "version": "0.0.1",
   "description": "",
-  "author": "",
+  "author": "Vitalii Gridniev",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "MIT License",
   "engines": {
     "node": "18.x"
   },
