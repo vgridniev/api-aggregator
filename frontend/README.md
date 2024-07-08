@@ -1,4 +1,4 @@
-Update# Frontend - API Aggregator
+# Frontend - API Aggregator
 
 This folder contains the source code for the frontend application of the API Aggregator, built with Next.js.
 
